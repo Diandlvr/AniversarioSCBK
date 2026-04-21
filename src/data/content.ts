@@ -151,28 +151,28 @@ export const ourSongs = [
     artist: "The Beatles",
     title: "Here Comes The Sun",
     lyricSnippet: "Little darling, it's been a long cold lonely winter...",
-    spotifyUrl: "#",
+    audioFile: "/music/song1.mp3", // Sube aquí tu archivo mp3
   },
   {
     id: "song-2",
     artist: "Leon Bridges",
     title: "Beyond",
     lyricSnippet: "She might just be my everything and beyond...",
-    spotifyUrl: "#",
+    audioFile: "/music/song2.mp3",
   },
   {
     id: "song-3",
     artist: "Frank Ocean",
     title: "Thinkin Bout You",
     lyricSnippet: "A tornado flew around my room before you came...",
-    spotifyUrl: "#",
+    audioFile: "/music/song3.mp3",
   },
   {
     id: "song-4",
     artist: "Mac Miller",
     title: "The Divine Feminine",
     lyricSnippet: "You was coughing when you hit my weed, but I've never seen you look so good...",
-    spotifyUrl: "#",
+    audioFile: "/music/song4.mp3",
   },
 ];
 

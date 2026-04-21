@@ -6,9 +6,9 @@
 
 :root {
   /* ─── Core Palette (Light Warm) ─── */
-  --c-surface:              #E8D9C8; /* Slightly darker cream/parchment */
-  --c-surface-alt:          #DAC7B3;
-  --c-sand:                 #D1BC9E;
+  --c-surface:              #DCCAB6; /* A deeper, moodier cream/parchment */
+  --c-surface-alt:          #D0BAA3;
+  --c-sand:                 #C4AD93;
   --c-warm:                 #4A3728;
 
   /* ─── Dark palette (for intentional dark sections) ─── */
