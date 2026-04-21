@@ -1,0 +1,101 @@
+.sectionTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--c-ink);
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--c-warm);
+  margin-bottom: 4rem;
+}
+
+.placesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.placeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.photoWrapper {
+  width: 240px;
+  height: 300px;
+  position: relative;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--c-paper);
+  padding: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.placeCard:hover .photoWrapper {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  transform: translateY(-5px);
+}
+
+.photoContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--c-sand);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.photoTexture {
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" opacity="0.1" filter="url(%23noiseFilter)"/></svg>');
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+  transition: opacity 0.4s ease;
+}
+
+.placeCard:hover .photoTexture {
+  opacity: 0.4;
+}
+
+/* Coordinates text sitting beautifully in the middle if no map */
+.mapCoords {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--c-warm);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  text-align: center;
+  width: 80%;
+}
+
+.placeName {
+  font-size: 1.8rem;
+  color: var(--c-ink);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.placeLabel {
+  font-size: 1.3rem;
+  color: var(--c-blush);
+}
+
+@media (max-width: 768px) {
+  .photoWrapper {
+    width: 200px;
+    height: 250px;
+  }
+}

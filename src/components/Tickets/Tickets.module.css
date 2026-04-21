@@ -1,0 +1,238 @@
+/* ─── Section ─── */
+.sectionTitle {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  color: var(--c-ink);
+  margin-bottom: 0.75rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.25rem;
+  opacity: 0.6;
+  color: var(--c-ink-soft);
+  margin-bottom: 5rem;
+}
+
+/* ─── Tickets Layout ─── */
+.ticketsLayout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ═══════════════════════════════════
+   INDIVIDUAL TICKET
+   ═══════════════════════════════════ */
+
+.ticket {
+  display: flex;
+  width: 440px;
+  max-width: 100%;
+  position: relative;
+  cursor: default;
+  transition: transform 350ms ease, box-shadow 350ms ease;
+  filter: drop-shadow(0 10px 25px rgba(74,55,40,0.12))
+          drop-shadow(0 20px 40px rgba(74,55,40,0.08));
+}
+
+.ticket:hover {
+  filter: drop-shadow(0 15px 35px rgba(74,55,40,0.18))
+          drop-shadow(0 25px 50px rgba(74,55,40,0.12));
+}
+
+/* ─── Notches (semicircle cutouts on sides) ─── */
+.notch {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--c-surface);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.notchLeft {
+  left: -10px;
+}
+
+.notchRight {
+  right: -10px;
+}
+
+/* ─── Ticket Body ─── */
+.ticketBody {
+  flex: 1;
+  background: var(--c-paper);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.03'/%3E%3C/svg%3E");
+  padding: 1.75rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Stitch border inside ticket body */
+.ticketBody::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1.5px dashed rgba(30, 16, 12, 0.08);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ─── Perforation Line (micro-perforated effect) ─── */
+.perforation {
+  width: 100%;
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(30, 16, 12, 0.15) 0px,
+    rgba(30, 16, 12, 0.15) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  margin: 0.5rem 0;
+}
+
+/* ─── Header ─── */
+.ticketHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ticketLabel {
+  font-size: 0.6rem;
+  color: var(--c-rose-dark);
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+}
+
+.ticketNumber {
+  font-size: 0.5rem;
+  color: var(--c-ink);
+  opacity: 0.3;
+}
+
+/* ─── Event Name ─── */
+.ticketEvent {
+  font-size: 1.6rem;
+  color: var(--c-ink);
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+/* ─── Details Grid ─── */
+.ticketDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.ticketDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.detailLabel {
+  font-size: 0.5rem;
+  color: var(--c-ink);
+  opacity: 0.4;
+  letter-spacing: 0.15em;
+}
+
+.detailValue {
+  font-size: 0.9rem;
+  color: var(--c-ink);
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════
+   TEAR STUB (right side)
+   ═══════════════════════════════════ */
+
+.tearStub {
+  width: 90px;
+  background: var(--c-paper);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.03'/%3E%3C/svg%3E");
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Vertical tear perforation */
+.tearPerforation {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(30, 16, 12, 0.2) 0px,
+    rgba(30, 16, 12, 0.2) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.stubContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
+.stubSeat {
+  font-size: 0.7rem;
+  color: var(--c-ink);
+  opacity: 0.6;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.2em;
+}
+
+.barcode {
+  width: 100%;
+  max-width: 60px;
+  height: auto;
+  color: var(--c-ink);
+  opacity: 0.5;
+}
+
+.stubSerial {
+  font-size: 0.4rem;
+  color: var(--c-ink);
+  opacity: 0.3;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@media (max-width: 500px) {
+  .ticket {
+    width: 100%;
+  }
+
+  .tearStub {
+    width: 60px;
+  }
+
+  .ticketBody {
+    padding: 1.25rem 1rem;
+  }
+
+  .ticketEvent {
+    font-size: 1.3rem;
+  }
+
+  .ticketDetails {
+    gap: 0.5rem 1rem;
+  }
+}

@@ -1,0 +1,182 @@
+/* ================================================================
+   THE ARCHIVE OF US — Design System
+   Based on "The Tactile Curator" (Stitch Design)
+   Warm cream scrapbook aesthetic
+   ================================================================ */
+
+:root {
+  /* ─── Core Palette (Light Warm) ─── */
+  --c-surface:              #E8D9C8; /* Slightly darker cream/parchment */
+  --c-surface-alt:          #DAC7B3;
+  --c-sand:                 #D1BC9E;
+  --c-warm:                 #4A3728;
+
+  /* ─── Dark palette (for intentional dark sections) ─── */
+  --c-surface-dark:         #1e100c;
+  --c-surface-container:    #2a1a14;
+
+  /* ─── Accent Palette ─── */
+  --c-rose:       #C4877A;
+  --c-rose-light: #fab6a8;
+  --c-rose-dark:  #A66B5E;
+  --c-blush:      #B8867A;
+  --c-cream:      #F5F0EB;
+  --c-paper:      #FAF7F4;
+
+  /* ─── Semantic ─── */
+  --c-ink:        #1A1A1A;
+  --c-ink-soft:   #4A3728;
+  --c-rule:       #D4C5BC;
+  --c-outline:    rgba(74, 55, 40, 0.15);
+  --c-outline-variant: rgba(74, 55, 40, 0.1);
+
+  /* ─── Shadows (lighter for cream bg) ─── */
+  --shadow-scrapbook: 0 10px 30px -5px rgba(74,55,40,0.12),
+                      0 20px 40px -10px rgba(74,55,40,0.08);
+  --shadow-soft: 0 4px 20px rgba(74,55,40,0.1);
+
+  /* ─── Typography (filled by next/font) ─── */
+  /* --font-display, --font-editorial, --font-script, --font-mono, --font-sans */
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--c-surface);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  color: var(--c-ink);
+  font-family: var(--font-editorial), 'Georgia', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+::selection {
+  background: rgba(250, 182, 168, 0.3);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ─── Layout ─── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding-block: 6rem;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: 3.5rem;
+  }
+}
+
+/* ─── Typography Classes ─── */
+.text-display {
+  font-family: var(--font-display), 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+.text-editorial {
+  font-family: var(--font-editorial), 'Georgia', serif;
+  font-weight: 400;
+}
+
+.text-script {
+  font-family: var(--font-script), 'Georgia', serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.text-mono {
+  font-family: var(--font-mono), monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+}
+
+.text-sans {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 400;
+}
+
+/* ─── Text Colors ─── */
+.text-rose {
+  color: var(--c-rose);
+}
+
+.text-rose-dark {
+  color: var(--c-rose-dark);
+}
+
+.text-cream {
+  color: var(--c-cream);
+}
+
+/* ─── Utility: Scrapbook Shadows ─── */
+.scrapbook-shadow {
+  box-shadow: var(--shadow-scrapbook);
+}
+
+/* ─── Utility: Paper Texture Background ─── */
+.paper-texture {
+  background-color: var(--c-paper);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* ─── Utility: Dashed Stitch Border ─── */
+.dashed-border {
+  background-image:
+    repeating-linear-gradient(0deg, #4A372833, #4A372833 8px, transparent 8px, transparent 16px),
+    repeating-linear-gradient(90deg, #4A372833, #4A372833 8px, transparent 8px, transparent 16px),
+    repeating-linear-gradient(180deg, #4A372833, #4A372833 8px, transparent 8px, transparent 16px),
+    repeating-linear-gradient(270deg, #4A372833, #4A372833 8px, transparent 8px, transparent 16px);
+  background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-repeat: no-repeat;
+}
+
+/* ─── Utility: Divider ─── */
+.divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--c-rose-dark);
+  margin: 2rem 0;
+  opacity: 0.5;
+}
+
+/* ─── Animations ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}

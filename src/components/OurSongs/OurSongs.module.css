@@ -1,0 +1,117 @@
+.sectionWrapper {
+  background-color: var(--c-ink);
+  color: var(--c-paper);
+  padding: 6rem 0;
+  margin: 6rem 0;
+  /* subtle noise texture over the dark background */
+  position: relative;
+  overflow: hidden;
+}
+
+.noiseOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" opacity="0.05" filter="url(%23noiseFilter)"/></svg>');
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+.sectionContent {
+  position: relative;
+  z-index: 1;
+}
+
+.sectionTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--c-paper);
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--c-blush);
+  margin-bottom: 4rem;
+}
+
+.songsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.songCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem 2rem;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.songCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--c-blush);
+  transform: translateY(-4px);
+}
+
+.vinylRecordIcon {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #111, #333, #111, #333, #111);
+  border: 2px solid var(--c-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: scale(0.8) rotate(-90deg);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vinylCenter {
+  width: 20px;
+  height: 20px;
+  background: var(--c-blush);
+  border-radius: 50%;
+  border: 4px solid #111;
+}
+
+.songCard:hover .vinylRecordIcon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.artist {
+  color: var(--c-sand);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: var(--c-paper);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.lyric {
+  color: var(--c-dusty);
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}

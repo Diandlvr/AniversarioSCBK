@@ -1,0 +1,39 @@
+.footer {
+  padding: 4rem 0 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: var(--c-rose-dark);
+  opacity: 0.3;
+}
+
+.footerText {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--c-ink-soft);
+  opacity: 0.25;
+}
+
+.heart {
+  display: inline-block;
+  color: var(--c-rose-dark);
+  animation: heartbeat 2s ease-in-out infinite;
+  margin: 0 0.25rem;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  56% { transform: scale(1); }
+}

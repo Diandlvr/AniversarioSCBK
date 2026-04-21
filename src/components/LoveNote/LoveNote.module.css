@@ -1,0 +1,62 @@
+.sectionWrapper {
+  background-color: var(--c-cream);
+  padding: 10rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paperSheet {
+  background-color: #F8F5F2; /* slightly lighter than cream */
+  width: 100%;
+  max-width: 800px;
+  min-height: 50vh;
+  padding: 5rem 10%;
+  position: relative;
+  /* Very subtle drop shadow reflecting real paper */
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.05));
+  
+  /* Uneven, torn paper edges using polygon clip path */
+  /* Generates an irregular organic paper look */
+  clip-path: polygon(
+    0% 2%, 2% 0%, 5% 1%, 8% 0%, 12% 2%, 18% 0%, 25% 1%, 30% 0%, 40% 2%, 50% 0%,
+    60% 1%, 70% 0%, 80% 2%, 85% 0%, 92% 1%, 98% 0%, 100% 2%, 
+    99% 10%, 100% 20%, 99% 30%, 100% 40%, 99% 50%, 100% 60%, 98% 70%, 100% 80%, 99% 90%, 100% 98%,
+    98% 100%, 92% 99%, 85% 100%, 80% 98%, 70% 100%, 60% 99%, 50% 100%, 40% 98%, 30% 100%, 25% 99%, 18% 100%, 12% 98%, 8% 100%, 5% 99%, 2% 100%, 0% 98%,
+    1% 90%, 0% 80%, 2% 70%, 0% 60%, 1% 50%, 0% 40%, 1% 30%, 0% 20%, 1% 10%
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.salutation {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--c-ink);
+  margin-bottom: 2rem;
+  align-self: flex-start;
+}
+
+.bodyText {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  color: var(--c-ink);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.signOff {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--c-warm);
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.signature {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--c-ink);
+  align-self: flex-end;
+}

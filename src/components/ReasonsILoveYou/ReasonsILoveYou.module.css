@@ -1,0 +1,192 @@
+.sectionTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+/* Magazine cut-out effect for title letters */
+.cutoutLetter {
+  display: inline-block;
+  padding: 0 0.5rem;
+  background: var(--c-ink);
+  color: var(--c-paper);
+  font-family: var(--font-display);
+  transform: rotate(var(--rot, 0deg)) translateY(var(--dy, 0px));
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.cutoutLetter:nth-child(even) { background: var(--c-sand); color: var(--c-ink); }
+.cutoutLetter:nth-child(3n) { background: var(--c-blush); color: var(--c-paper); }
+
+.sectionSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--c-warm);
+  margin-bottom: 4rem;
+  margin-top: 1.5rem;
+}
+
+/* ─── Envelope Grid ─── */
+.envelopesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 4rem 3rem;
+  padding: 2rem 0;
+}
+
+/* ─── Envelope Container ─── */
+.envelopeWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The note sits BEHIND the envelope and slides up */
+.envelopeScene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: visible; /* allow the note to escape above */
+}
+
+/* ─── The Note (behind the envelope) ─── */
+.note {
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  width: 84%;
+  height: 85%;
+  background: var(--c-paper);
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+  padding: 1.8rem 1.5rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.envelopeOpen .note {
+  transform: translateY(-85%);
+  z-index: 10; /* jump in front of the envelope when open */
+}
+
+.noteTitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #C4877A; /* explicit blush — not inherited */
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.noteText {
+  font-family: var(--font-script);
+  font-size: 1.25rem;
+  color: #1e100c; /* explicit dark ink — overrides the global cream text */
+  line-height: 1.5;
+}
+
+/* ─── Envelope Body (sits ON TOP of the note) ─── */
+.envelope {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none; /* let clicks pass to button below */
+}
+
+/* Solid back panel — covers the note completely */
+.envelopeBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #E8D3C3;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+/* Side flaps — triangular folds that give depth */
+.flapLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #E3CBB3;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  z-index: 3;
+}
+
+.flapRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #DFCDBC;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  z-index: 3;
+}
+
+/* Bottom flap — triangle pointing up */
+.flapBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  background-color: var(--c-sand);
+  clip-path: polygon(0 100%, 50% 10%, 100% 100%);
+  z-index: 4;
+}
+
+/* Top flap — the one that opens */
+.flapTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  background-color: #DAB99C;
+  clip-path: polygon(0 0, 50% 90%, 100% 0);
+  transform-origin: top center;
+  z-index: 5;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelopeOpen .flapTop {
+  transform: rotateX(180deg);
+}
+
+/* ─── Button ─── */
+.interactBtn {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--c-warm);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--c-blush);
+  text-underline-offset: 4px;
+  transition: color 0.3s ease;
+  z-index: 10;
+}
+
+.interactBtn:hover {
+  color: var(--c-blush);
+}

@@ -1,0 +1,119 @@
+.sectionTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--c-ink);
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--c-warm);
+  margin-bottom: 4rem;
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem 0;
+}
+
+.movieCard {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* slight scrapbook shadow */
+  background: var(--c-sand);
+  cursor: pointer;
+}
+
+/* White border inside the poster for a framed feel */
+.movieCard::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+  pointer-events: none;
+  transition: border-color 0.4s ease;
+}
+
+.movieCard:hover::before {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.posterImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease, filter 0.5s ease;
+  filter: grayscale(0.2) contrast(1.1);
+}
+
+.movieCard:hover .posterImage {
+  transform: scale(1.05);
+  filter: grayscale(0.8) blur(3px) brightness(0.4);
+}
+
+/* Overlay that appears on hover */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(42, 26, 20, 0.6); /* --c-ink tinted */
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  transition: opacity 0.5s ease;
+  z-index: 5;
+}
+
+.movieCard:hover .overlay {
+  opacity: 1;
+}
+
+.movieTitle {
+  color: var(--c-paper);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  transform: translateY(20px);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.movieReview {
+  color: var(--c-sand);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  transform: translateY(20px);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition-delay: 0.05s;
+}
+
+.movieCard:hover .movieTitle,
+.movieCard:hover .movieReview {
+  transform: translateY(0);
+}
+
+/* Tape piece at the top middle for aesthetic */
+.tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 60px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  z-index: 10;
+  pointer-events: none;
+}

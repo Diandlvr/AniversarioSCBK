@@ -1,0 +1,315 @@
+/* ─── Section ─── */
+.sectionTitle {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  color: var(--c-ink);
+  margin-bottom: 0.75rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.25rem;
+  opacity: 0.6;
+  color: var(--c-ink-soft);
+  margin-bottom: 5rem;
+}
+
+/* ─── Scrapbook Grid ─── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3rem;
+  align-items: start;
+  position: relative;
+  min-height: 900px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 3rem;
+  }
+}
+
+/* ─── Polaroid Card ─── */
+.polaroid {
+  padding: 1rem;
+  background-color: var(--c-paper);
+  box-shadow: var(--shadow-scrapbook);
+  position: relative;
+  cursor: default;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.polaroid:hover {
+  box-shadow: 0 15px 40px -5px rgba(74,55,40,0.15), 0 25px 50px -10px rgba(74,55,40,0.1);
+}
+
+/* Tape on top */
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1deg);
+  width: 90px;
+  height: 28px;
+  background: rgba(200, 200, 176, 0.28);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Sepia overlay on image */
+.photoBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(120, 60, 10, 0.08);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.polaroidCaption {
+  color: var(--c-ink);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.polaroidMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(30, 16, 12, 0.08);
+  padding-top: 0.5rem;
+}
+
+.polaroidDate {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  color: var(--c-ink);
+}
+
+.polaroidNumber {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  opacity: 0.35;
+  color: var(--c-ink);
+}
+
+/* Corner curl */
+.cornerCurl {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, transparent 50%, rgba(30, 16, 12, 0.06) 50%);
+  pointer-events: none;
+}
+
+/* ─── Sticky Note ─── */
+.stickyNote {
+  padding: 1.75rem;
+  background-color: var(--c-paper);
+  box-shadow: var(--shadow-scrapbook);
+  position: relative;
+  max-width: 320px;
+  transition: transform 300ms ease;
+}
+
+.stickyNote:hover {
+  transform: scale(1.02) !important;
+}
+
+.pin {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #6b3a1f;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 5;
+}
+
+.pin::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 8px;
+  background: rgba(107, 58, 31, 0.3);
+}
+
+.stickyText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--c-ink);
+}
+
+.stickySignature {
+  text-align: right;
+  margin-top: 1.25rem;
+  color: var(--c-ink);
+  opacity: 0.55;
+}
+
+/* ─── Itinerary Card ─── */
+.itinerary {
+  padding: 2.5rem;
+  background-color: var(--c-paper);
+  box-shadow: var(--shadow-scrapbook);
+  position: relative;
+}
+
+/* Dashed stitch border */
+.itinerary::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed rgba(30, 16, 12, 0.1);
+  pointer-events: none;
+}
+
+/* Pin on itinerary */
+.itineraryPin {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.itineraryPinHead {
+  width: 16px;
+  height: 16px;
+  background: var(--c-surface-dark);
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+.itineraryPinNeedle {
+  width: 4px;
+  height: 10px;
+  background: rgba(24, 11, 7, 0.3);
+  margin: -2px auto 0;
+}
+
+.itineraryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(30, 16, 12, 0.08);
+  padding-bottom: 0.75rem;
+}
+
+.itineraryIcon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+  color: var(--c-ink);
+}
+
+.itineraryTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--c-ink);
+}
+
+.itineraryItemTitle {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--c-ink);
+}
+
+.itineraryItemDesc {
+  font-size: 0.8rem;
+  color: var(--c-ink);
+  opacity: 0.65;
+  line-height: 1.6;
+  margin-top: 0.25rem;
+}
+
+/* Coffee stain decoration */
+.coffeeStain {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(30, 16, 12, 0.04);
+  pointer-events: none;
+}
+
+/* ─── Grid Placement ─── */
+.mainPolaroid {
+  grid-column: 1 / 6;
+  margin-top: 2rem;
+}
+
+.noteArea {
+  grid-column: 8 / 12;
+  margin-top: 6rem;
+}
+
+.itineraryArea {
+  grid-column: 1 / 5;
+  margin-top: -2rem;
+}
+
+.secondPolaroid {
+  grid-column: 7 / 12;
+  margin-top: -4rem;
+  position: relative;
+}
+
+.detailsTag {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-2deg);
+  padding: 0.5rem 1rem;
+  background: var(--c-rose);
+  box-shadow: var(--shadow-soft);
+  z-index: 10;
+  color: var(--c-paper);
+  font-size: 0.85rem;
+}
+
+.thirdPolaroid {
+  grid-column: 9 / 12;
+  margin-top: -2rem;
+}
+
+@media (max-width: 768px) {
+  .mainPolaroid,
+  .noteArea,
+  .itineraryArea,
+  .secondPolaroid,
+  .thirdPolaroid {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+
+  .detailsTag {
+    display: none;
+  }
+}
