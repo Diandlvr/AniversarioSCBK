@@ -162,6 +162,26 @@ export const tickets = [
   },
 ];
 
+/* ─── Favorite Messages ─── */
+export const favoriteMessages = [
+  {
+    id: "chat-1",
+    conversation: [
+      { sender: "you", text: "¿Te imaginas nosotros en 5 años?" },
+      { sender: "her", text: "Me imagino despertando a tu lado, como hoy." },
+      { sender: "you", text: "Esa es la mejor respuesta que me han dado." },
+    ]
+  },
+  {
+    id: "chat-2",
+    conversation: [
+      { sender: "her", text: "No puedo dejar de pensar en lo de anoche." },
+      { sender: "you", text: "¿En qué parte exactamente? 😏" },
+      { sender: "her", text: "En lo mucho que me haces reír." },
+    ]
+  }
+];
+
 /* ─── Important Places ─── */
 export const importantPlaces = [
   {
