@@ -247,7 +247,7 @@ export const ourSongs = [
     artist: "Bad Bunny",
     title: "Ojitos Lindos",
     lyricSnippet: "Yo no me dejo llevar de nadie, solo me dejo llevar de tu sonrisa...",
-    audioFile: "/music/ojitos_lindos.m4a",
+    audioFile: "/music/ojitos_lindos_v2.m4a",
     coverSrc: "/photos/albums/ojitos-lindos.jpg",
   },
   {
