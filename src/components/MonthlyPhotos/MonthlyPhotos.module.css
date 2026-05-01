@@ -1,0 +1,134 @@
+/* ─── MonthlyPhotos ─── */
+
+.sectionTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--c-warm);
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--c-rose-dark);
+  margin-bottom: 4rem;
+}
+
+.monthsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ─── Polaroid Card ─── */
+.polaroid {
+  background: var(--c-paper);
+  padding: 0.75rem 0.75rem 1.5rem;
+  box-shadow:
+    0 4px 15px rgba(74, 55, 40, 0.1),
+    0 1px 3px rgba(74, 55, 40, 0.08);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  position: relative;
+  cursor: default;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03) !important;
+  box-shadow:
+    0 12px 35px rgba(74, 55, 40, 0.18),
+    0 4px 10px rgba(74, 55, 40, 0.1);
+  z-index: 5;
+}
+
+/* ─── Washi Tape ─── */
+.washiTape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 70px;
+  height: 22px;
+  background: linear-gradient(135deg, rgba(196, 135, 122, 0.6), rgba(184, 134, 122, 0.5));
+  border-radius: 1px;
+  z-index: 10;
+  opacity: 0.85;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.polaroid:nth-child(even) .washiTape {
+  transform: translateX(-50%) rotate(3deg);
+  background: linear-gradient(135deg, rgba(196, 173, 147, 0.6), rgba(212, 197, 188, 0.5));
+}
+
+/* ─── Photo Frame ─── */
+.photoFrame {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--c-surface-alt);
+  position: relative;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.polaroid:hover .photo {
+  transform: scale(1.05);
+}
+
+/* ─── Caption Area ─── */
+.polaroidCaption {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.monthLabel {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--c-warm);
+  line-height: 1.2;
+}
+
+.yearLabel {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--c-sand);
+  margin-top: 0.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.captionText {
+  font-size: 1.1rem;
+  color: var(--c-rose-dark);
+  line-height: 1.4;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .monthsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .polaroid {
+    padding: 0.5rem 0.5rem 1rem;
+  }
+
+  .monthLabel {
+    font-size: 1.2rem;
+  }
+
+  .captionText {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .monthsGrid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}

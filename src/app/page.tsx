@@ -2,8 +2,9 @@ import Hero from "@/components/Hero/Hero";
 import CalendarDate from "@/components/CalendarDate/CalendarDate";
 import FirstMoments from "@/components/FirstMoments/FirstMoments";
 import PhotoBooth from "@/components/PhotoBooth/PhotoBooth";
-import FavoriteMessages from "@/components/FavoriteMessages/FavoriteMessages";
+import MonthlyPhotos from "@/components/MonthlyPhotos/MonthlyPhotos";
 import Tickets from "@/components/Tickets/Tickets";
+import SpecialMoments from "@/components/SpecialMoments/SpecialMoments";
 import ImportantPlaces from "@/components/ImportantPlaces/ImportantPlaces";
 import OurSongs from "@/components/OurSongs/OurSongs";
 import MoviesWatched from "@/components/MoviesWatched/MoviesWatched";
@@ -22,8 +23,9 @@ export default function Home() {
         <div id="calendar"><CalendarDate /></div>
         <div id="first-moments"><FirstMoments /></div>
         <div id="photo-booth"><PhotoBooth /></div>
-        <div id="messages"><FavoriteMessages /></div>
+        <div id="monthly-photos"><MonthlyPhotos /></div>
         <div id="tickets"><Tickets /></div>
+        <div id="special-moments"><SpecialMoments /></div>
         <div id="places"><ImportantPlaces /></div>
         <div id="songs"><OurSongs /></div>
         <div id="movies"><MoviesWatched /></div>

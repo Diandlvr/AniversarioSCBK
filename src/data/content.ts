@@ -70,29 +70,71 @@ export const galleryPolaroids = [
   },
 ];
 
-/* ─── Favorite Messages ─── */
-export const favoriteMessages = [
+/* ─── Monthly Photos ─── */
+export const monthlyPhotos = [
+  { id: "month-1",  month: "Junio",      year: 2025, caption: "Donde todo empezó",            photoSrc: "/photos/monthly/jun-2025.png" },
+  { id: "month-2",  month: "Julio",      year: 2025, caption: "Descubriéndonos",              photoSrc: "/photos/monthly/jul-2025.png" },
+  { id: "month-3",  month: "Agosto",     year: 2025, caption: "Verano contigo",               photoSrc: "/photos/monthly/ago-2025.png" },
+  { id: "month-4",  month: "Septiembre", year: 2025, caption: "Rutinas compartidas",          photoSrc: "/photos/monthly/sep-2025.png" },
+  { id: "month-5",  month: "Octubre",    year: 2025, caption: "Otoño juntos",                 photoSrc: "/photos/monthly/oct-2025.png" },
+  { id: "month-6",  month: "Noviembre",  year: 2025, caption: "Más cerca que nunca",          photoSrc: "/photos/monthly/nov-2025.png" },
+  { id: "month-7",  month: "Diciembre",  year: 2025, caption: "Nuestra primera Navidad",      photoSrc: "/photos/monthly/dic-2025.png" },
+  { id: "month-8",  month: "Enero",      year: 2026, caption: "Año nuevo, mismo amor",        photoSrc: "/photos/monthly/ene-2026.png" },
+  { id: "month-9",  month: "Febrero",    year: 2026, caption: "San Valentín",                 photoSrc: "/photos/monthly/feb-2026.png" },
+  { id: "month-10", month: "Marzo",      year: 2026, caption: "Creciendo juntos",             photoSrc: "/photos/monthly/mar-2026.png" },
+  { id: "month-11", month: "Abril",      year: 2026, caption: "Casi un año de nosotros",      photoSrc: "/photos/monthly/abr-2026.png" },
+];
+
+/* ─── Special Moments ─── */
+export const specialMoments = [
   {
-    id: "msg-1",
-    conversation: [
-      { sender: "her", text: "Buenos días 🌅" },
-      { sender: "you", text: "Buenos días tú. ¿Dormiste bien?" },
-      { sender: "her", text: "Sí. Soñé algo bonito." },
-      { sender: "you", text: "¿Qué soñaste?" },
-      { sender: "her", text: "Que estábamos en una playa, solos, sin prisa." },
-      { sender: "you", text: "Hagámoslo realidad. ❤️" },
-    ],
+    id: "moment-1",
+    date: "14 Jun 2025",
+    title: "Nuestro Primer Día",
+    description: "El día que todo cambió para siempre.",
+    photoSrc: "/photos/moments/primer-dia.png",
   },
   {
-    id: "msg-2",
-    conversation: [
-      { sender: "you", text: "Oye" },
-      { sender: "her", text: "¿Qué?" },
-      { sender: "you", text: "Te quiero." },
-      { sender: "her", text: "¿Así de la nada?" },
-      { sender: "you", text: "Así, de la nada y siempre." },
-      { sender: "her", text: "Yo más. 🤍" },
-    ],
+    id: "moment-2",
+    date: "—",  // Cambia esta fecha
+    title: "Nuestro Primer Viaje",
+    description: "Kilómetros juntos, recuerdos infinitos.",
+    photoSrc: "/photos/moments/primer-viaje.png",
+  },
+  {
+    id: "moment-3",
+    date: "25 Dic 2025",
+    title: "Navidad 2025",
+    description: "Regalos, abrazos y chocolate caliente.",
+    photoSrc: "/photos/moments/navidad.png",
+  },
+  {
+    id: "moment-4",
+    date: "31 Dic 2025",
+    title: "Fin de Año",
+    description: "Las campanadas y un beso a medianoche.",
+    photoSrc: "/photos/moments/fin-de-ano.png",
+  },
+  {
+    id: "moment-5",
+    date: "14 Feb 2026",
+    title: "San Valentín",
+    description: "Nuestro primer 14 de febrero juntos.",
+    photoSrc: "/photos/moments/san-valentin.png",
+  },
+  {
+    id: "moment-6",
+    date: "—",  // Cambia esta fecha
+    title: "El Cumple de Jorge",
+    description: "Un día especial para celebrarte.",
+    photoSrc: "/photos/moments/cumple-jorge.png",
+  },
+  {
+    id: "moment-7",
+    date: "14 Jun 2026",
+    title: "Un Año Juntos",
+    description: "365 días de nosotros.",
+    photoSrc: "/photos/moments/un-ano.png",
   },
 ];
 
@@ -142,6 +184,12 @@ export const importantPlaces = [
     name: "Mirador de la ciudad",
     coordinates: "19.4326° N, 99.1332° W",
   },
+  {
+    id: "place-4",
+    label: "Lugar especial", // Cambia este label
+    name: "Nuestro Lugar",   // Cambia este nombre
+    coordinates: "—",        // Cambia estas coordenadas
+  },
 ];
 
 /* ─── Our Songs ─── */
@@ -151,28 +199,64 @@ export const ourSongs = [
     artist: "The Beatles",
     title: "Here Comes The Sun",
     lyricSnippet: "Little darling, it's been a long cold lonely winter...",
-    audioFile: "/music/song1.mp3", // Sube aquí tu archivo mp3
+    audioFile: "/music/song1.m4a",
+    coverSrc: "/photos/albums/abbey-road.jpg",
   },
   {
     id: "song-2",
-    artist: "Leon Bridges",
-    title: "Beyond",
-    lyricSnippet: "She might just be my everything and beyond...",
-    audioFile: "/music/song2.mp3",
+    artist: "Mac Miller",
+    title: "Congratulations",
+    lyricSnippet: "You was there before the fancy cars and you was there when I was just a starving artist...",
+    audioFile: "/music/song2.m4a",
+    coverSrc: "/photos/albums/divine-feminine.jpg",
   },
   {
     id: "song-3",
     artist: "Frank Ocean",
     title: "Thinkin Bout You",
     lyricSnippet: "A tornado flew around my room before you came...",
-    audioFile: "/music/song3.mp3",
+    audioFile: "/music/song3.m4a",
+    coverSrc: "/photos/albums/channel-orange.jpg",
   },
   {
     id: "song-4",
     artist: "Mac Miller",
-    title: "The Divine Feminine",
+    title: "Cinderella",
     lyricSnippet: "You was coughing when you hit my weed, but I've never seen you look so good...",
-    audioFile: "/music/song4.mp3",
+    audioFile: "/music/song4.m4a",
+    coverSrc: "/photos/albums/cinderella-cover.jpg",
+  },
+  {
+    id: "song-5",
+    artist: "Adele",
+    title: "Make You Feel My Love",
+    lyricSnippet: "I could make you happy, make your dreams come true...",
+    audioFile: "/music/song5.m4a",
+    coverSrc: "/photos/albums/adele-19.jpg",
+  },
+  {
+    id: "song-6",
+    artist: "Ed Sheeran",
+    title: "Perfect",
+    lyricSnippet: "Baby, I'm dancing in the dark with you between my arms...",
+    audioFile: "/music/song6.m4a",
+    coverSrc: "/photos/albums/divide.jpg",
+  },
+  {
+    id: "song-7",
+    artist: "John Legend",
+    title: "All of Me",
+    lyricSnippet: "All of me loves all of you, all your curves and all your edges...",
+    audioFile: "/music/song7.m4a",
+    coverSrc: "/photos/albums/love-in-the-future.jpg",
+  },
+  {
+    id: "song-8",
+    artist: "Bruno Mars",
+    title: "Just The Way You Are",
+    lyricSnippet: "When I see your face, there's not a thing that I would change...",
+    audioFile: "/music/song8.m4a",
+    coverSrc: "/photos/albums/doo-wops.jpg",
   },
 ];
 

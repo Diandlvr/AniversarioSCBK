@@ -1,38 +1,85 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef, useCallback } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import s from "./OurSongs.module.css";
 import { ourSongs } from "@/data/content";
 
 export default function OurSongs() {
-  const [playingId, setPlayingId] = useState<string | null>(null);
   const audioRefs = useRef<{ [key: string]: HTMLAudioElement | null }>({});
+  const activeId = useRef<string | null>(null);
 
-  const handlePlay = (id: string) => {
-    const currentAudio = audioRefs.current[id];
-    
-    // Si ya está sonando esta canción, la pausamos
-    if (playingId === id) {
-      currentAudio?.pause();
-      setPlayingId(null);
-      return;
-    }
+  const stopAll = useCallback(() => {
+    Object.values(audioRefs.current).forEach((audio) => {
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+        audio.volume = 0;
+      }
+    });
+    activeId.current = null;
+  }, []);
 
-    // Si hay otra sonando, la pausamos
-    if (playingId && audioRefs.current[playingId]) {
-      audioRefs.current[playingId]?.pause();
-    }
+  const handleMouseEnter = useCallback(
+    (id: string) => {
+      // Pause any currently playing song
+      if (activeId.current && activeId.current !== id) {
+        const prev = audioRefs.current[activeId.current];
+        if (prev) {
+          prev.pause();
+          prev.currentTime = 0;
+          prev.volume = 0;
+        }
+      }
 
-    // Reproducimos la nueva
-    currentAudio?.play();
-    setPlayingId(id);
-  };
+      const audio = audioRefs.current[id];
+      if (audio) {
+        audio.currentTime = 0;
+        audio.volume = 0;
+        audio.play().catch(() => {});
+
+        // Smooth fade-in
+        let vol = 0;
+        const fadeIn = setInterval(() => {
+          vol = Math.min(vol + 0.05, 0.8);
+          audio.volume = vol;
+          if (vol >= 0.8) clearInterval(fadeIn);
+        }, 30);
+      }
+
+      activeId.current = id;
+    },
+    []
+  );
+
+  const handleMouseLeave = useCallback(
+    (id: string) => {
+      const audio = audioRefs.current[id];
+      if (audio) {
+        // Smooth fade-out
+        let vol = audio.volume;
+        const fadeOut = setInterval(() => {
+          vol = Math.max(vol - 0.08, 0);
+          audio.volume = vol;
+          if (vol <= 0) {
+            clearInterval(fadeOut);
+            audio.pause();
+            audio.currentTime = 0;
+          }
+        }, 30);
+      }
+      if (activeId.current === id) {
+        activeId.current = null;
+      }
+    },
+    []
+  );
 
   return (
     <section className={s.sectionWrapper}>
       <div className={s.noiseOverlay} />
-      
+
       <div className={`${s.sectionContent} container`}>
         <div style={{ textAlign: "center" }}>
           <motion.h2
@@ -50,48 +97,50 @@ export default function OurSongs() {
             viewport={{ once: true }}
             className={`${s.sectionSubtitle} text-script`}
           >
-            Las canciones que suenan mientras el mundo se detiene. Haz click para escuchar.
+            Las canciones que suenan mientras el mundo se detiene. Pasa el cursor para escuchar.
           </motion.p>
         </div>
 
         <div className={s.songsGrid}>
-          {ourSongs.map((song, idx) => {
-            const isPlaying = playingId === song.id;
+          {ourSongs.map((song, idx) => (
+            <motion.div
+              key={song.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className={s.songCard}
+              onMouseEnter={() => handleMouseEnter(song.id)}
+              onMouseLeave={() => handleMouseLeave(song.id)}
+            >
+              <audio
+                ref={(el) => {
+                  audioRefs.current[song.id] = el;
+                }}
+                src={song.audioFile}
+                preload="auto"
+              />
 
-            return (
-              <motion.div
-                key={song.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className={`${s.songCard} ${isPlaying ? s.playing : ""}`}
-                onClick={() => handlePlay(song.id)}
-              >
-                <audio
-                  ref={(el) => {
-                    audioRefs.current[song.id] = el;
-                  }}
-                  src={song.audioFile}
-                  onEnded={() => setPlayingId(null)}
-                />
-                
-                <div className={`${s.vinylRecordIcon} ${isPlaying ? s.spin : ""}`}>
-                  <div className={s.vinylCenter} />
-                  {/* Pequeño indicador visual de nota musical o play */}
-                  <div className={s.playIndicator}>
-                    {isPlaying ? "⏸" : "♪"}
-                  </div>
+              <div className={s.vinylRecordIcon}>
+                <div className={s.vinylCenter}>
+                  {song.coverSrc && (
+                    <Image
+                      src={song.coverSrc}
+                      alt={`${song.title} album cover`}
+                      fill
+                      className={s.albumCover}
+                    />
+                  )}
                 </div>
+              </div>
 
-                <span className={`${s.artist} text-mono`}>{song.artist}</span>
-                <h3 className={`${s.title} text-display`}>{song.title}</h3>
-                <p className={`${s.lyric} text-script`}>
-                  "{song.lyricSnippet}"
-                </p>
-              </motion.div>
-            );
-          })}
+              <span className={`${s.artist} text-mono`}>{song.artist}</span>
+              <h3 className={`${s.title} text-display`}>{song.title}</h3>
+              <p className={`${s.lyric} text-script`}>
+                &ldquo;{song.lyricSnippet}&rdquo;
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

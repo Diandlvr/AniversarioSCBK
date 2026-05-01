@@ -1,0 +1,209 @@
+/* ─── SpecialMoments Timeline ─── */
+
+.sectionWrapper {
+  background-color: var(--c-surface-dark);
+  color: var(--c-paper);
+  padding: 6rem 0;
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.noiseOverlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" opacity="0.05" filter="url(%23noiseFilter)"/></svg>');
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+.sectionContent {
+  position: relative;
+  z-index: 1;
+}
+
+.sectionTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--c-paper);
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--c-blush);
+  margin-bottom: 4rem;
+}
+
+/* ─── Timeline Structure ─── */
+.timeline {
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--c-blush) 5%,
+    var(--c-blush) 95%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+}
+
+/* ─── Timeline Item ─── */
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 1.5rem 0;
+}
+
+.itemLeft {
+  left: 0;
+  padding-right: 3.5rem;
+  text-align: right;
+}
+
+.itemRight {
+  left: 50%;
+  padding-left: 3.5rem;
+  text-align: left;
+}
+
+/* ─── Dot on the Line ─── */
+.timelineDot {
+  position: absolute;
+  top: 2.2rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--c-blush);
+  z-index: 2;
+  box-shadow: 0 0 0 4px var(--c-surface-dark), 0 0 12px rgba(184, 134, 122, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.itemLeft .timelineDot {
+  right: -6px;
+}
+
+.itemRight .timelineDot {
+  left: -6px;
+}
+
+.timelineItem:hover .timelineDot {
+  transform: scale(1.4);
+  box-shadow: 0 0 0 4px var(--c-surface-dark), 0 0 20px rgba(184, 134, 122, 0.6);
+}
+
+/* ─── Moment Card ─── */
+.momentCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.momentCard:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--c-blush);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Card Photo ─── */
+.cardPhotoWrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--c-surface-container);
+}
+
+.cardPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.momentCard:hover .cardPhoto {
+  transform: scale(1.08);
+}
+
+.photoOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(30, 16, 12, 0.6), transparent);
+  pointer-events: none;
+}
+
+/* ─── Card Content ─── */
+.cardContent {
+  padding: 1.5rem;
+}
+
+.cardDate {
+  color: var(--c-blush);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 1.6rem;
+  color: var(--c-paper);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.cardDescription {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .timelineLine {
+    left: 20px;
+  }
+
+  .timelineItem {
+    width: 100%;
+    padding-left: 55px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .itemLeft {
+    left: 0;
+  }
+
+  .itemRight {
+    left: 0;
+  }
+
+  .itemLeft .timelineDot,
+  .itemRight .timelineDot {
+    left: -2px;
+    right: auto;
+  }
+
+  .cardTitle {
+    font-size: 1.3rem;
+  }
+}

@@ -23,6 +23,20 @@
   transform: rotate(15deg);
 }
 
+/* ─── Two-column layout ─── */
+.innerLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ─── Left: Lessons ─── */
+.lessonsCol {
+  position: relative;
+  z-index: 1;
+}
+
 .sectionTitle {
   font-size: clamp(2.2rem, 4vw, 3.5rem);
   color: var(--c-ink);
@@ -34,7 +48,7 @@
 .lessonsList {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* Should align roughly with notebook lines (e.g. 40px blocks) */
+  gap: 2rem;
   margin-top: 4rem;
   padding: 0 1rem;
 }
@@ -60,4 +74,59 @@
 
 .lessonItalic {
   font-family: var(--font-script);
+}
+
+/* ─── Right: Photos ─── */
+.photosCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 6rem; /* offset to align with notebook lines */
+  position: relative;
+  z-index: 1;
+}
+
+.photoFrame {
+  background: var(--c-paper);
+  padding: 0.6rem 0.6rem 2rem;
+  box-shadow:
+    0 6px 20px rgba(74, 55, 40, 0.12),
+    0 2px 6px rgba(74, 55, 40, 0.08);
+  transform: rotate(var(--tilt));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.photoFrame:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow:
+    0 14px 40px rgba(74, 55, 40, 0.18),
+    0 4px 12px rgba(74, 55, 40, 0.1);
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  background-color: var(--c-surface-alt);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .innerLayout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .photosCol {
+    padding-top: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .photoFrame {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 200px;
+  }
 }
