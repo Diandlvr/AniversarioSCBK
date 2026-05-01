@@ -207,7 +207,7 @@ export const ourSongs = [
     artist: "Mac Miller",
     title: "Congratulations",
     lyricSnippet: "You was there before the fancy cars and you was there when I was just a starving artist...",
-    audioFile: "/music/congratulations.m4a",
+    audioFile: "/music/congratulations_v2.m4a",
     coverSrc: "/photos/albums/divine-feminine.jpg",
   },
   {
@@ -231,7 +231,7 @@ export const ourSongs = [
     artist: "Álvaro Díaz",
     title: "Reina Pepiada",
     lyricSnippet: "Tú eres mi reina pepiada...",
-    audioFile: "/music/reina_pepiada.m4a",
+    audioFile: "/music/reina_pepiada_v2.m4a",
     coverSrc: "/photos/albums/reina-pepiada.jpg",
   },
   {
@@ -247,7 +247,7 @@ export const ourSongs = [
     artist: "Bad Bunny",
     title: "Ojitos Lindos",
     lyricSnippet: "Yo no me dejo llevar de nadie, solo me dejo llevar de tu sonrisa...",
-    audioFile: "/music/ojitos_lindos_v2.m4a",
+    audioFile: "/music/ojitos_lindos_v3.m4a",
     coverSrc: "/photos/albums/ojitos-lindos.jpg",
   },
   {
@@ -255,8 +255,16 @@ export const ourSongs = [
     artist: "Mac Miller",
     title: "Love Affair",
     lyricSnippet: "You're a beautiful lady, and I'm a beautiful guy... let's have a love affair...",
-    audioFile: "/music/love_affair.m4a",
+    audioFile: "/music/love_affair_v2.m4a",
     coverSrc: "/photos/albums/love-affair.jpg",
+  },
+  {
+    id: "song-9",
+    artist: "Mon Laferte",
+    title: "Primaveral",
+    lyricSnippet: "Me pones tan primaveral...",
+    audioFile: "/music/primaveral.m4a",
+    coverSrc: "/photos/albums/primaveral.jpg",
   },
 ];
 
