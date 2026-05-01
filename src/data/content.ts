@@ -196,18 +196,18 @@ export const importantPlaces = [
 export const ourSongs = [
   {
     id: "song-1",
-    artist: "Beéle",
-    title: "Solo Tú",
-    lyricSnippet: "Solo tú...",
-    audioFile: "/music/song1.m4a",
-    coverSrc: "/photos/albums/solo-tu.jpg",
+    artist: "Bad Bunny & The Marías",
+    title: "Otro Atardecer",
+    lyricSnippet: "Hoy el sol se escondió más temprano, cenamos y se nos fue la mano...",
+    audioFile: "/music/otro_atardecer.m4a",
+    coverSrc: "/photos/albums/otro-atardecer.jpg",
   },
   {
     id: "song-2",
     artist: "Mac Miller",
     title: "Congratulations",
     lyricSnippet: "You was there before the fancy cars and you was there when I was just a starving artist...",
-    audioFile: "/music/song2.m4a",
+    audioFile: "/music/congratulations.m4a",
     coverSrc: "/photos/albums/divine-feminine.jpg",
   },
   {
@@ -215,7 +215,7 @@ export const ourSongs = [
     artist: "Frank Ocean",
     title: "Thinkin Bout You",
     lyricSnippet: "A tornado flew around my room before you came...",
-    audioFile: "/music/song3.m4a",
+    audioFile: "/music/thinkin_bout_you.m4a",
     coverSrc: "/photos/albums/channel-orange.jpg",
   },
   {
@@ -223,7 +223,7 @@ export const ourSongs = [
     artist: "Mac Miller",
     title: "Cinderella",
     lyricSnippet: "You was coughing when you hit my weed, but I've never seen you look so good...",
-    audioFile: "/music/song4.m4a",
+    audioFile: "/music/cinderella.m4a",
     coverSrc: "/photos/albums/cinderella-cover.jpg",
   },
   {
@@ -231,7 +231,7 @@ export const ourSongs = [
     artist: "Álvaro Díaz",
     title: "Reina Pepiada",
     lyricSnippet: "Tú eres mi reina pepiada...",
-    audioFile: "/music/song5.m4a",
+    audioFile: "/music/reina_pepiada.m4a",
     coverSrc: "/photos/albums/reina-pepiada.jpg",
   },
   {
@@ -239,7 +239,7 @@ export const ourSongs = [
     artist: "3AM",
     title: "Alma",
     lyricSnippet: "Tú me robaste el alma...",
-    audioFile: "/music/song6.m4a",
+    audioFile: "/music/alma.m4a",
     coverSrc: "/photos/albums/alma-3am.jpg",
   },
   {
@@ -247,15 +247,15 @@ export const ourSongs = [
     artist: "Bad Bunny",
     title: "Ojitos Lindos",
     lyricSnippet: "Yo no me dejo llevar de nadie, solo me dejo llevar de tu sonrisa...",
-    audioFile: "/music/song7.m4a",
+    audioFile: "/music/ojitos_lindos.m4a",
     coverSrc: "/photos/albums/ojitos-lindos.jpg",
   },
   {
     id: "song-8",
     artist: "Mac Miller",
     title: "Love Affair",
-    lyricSnippet: "We could have a love affair...",
-    audioFile: "/music/song8.m4a",
+    lyricSnippet: "You're a beautiful lady, and I'm a beautiful guy... let's have a love affair...",
+    audioFile: "/music/love_affair.m4a",
     coverSrc: "/photos/albums/love-affair.jpg",
   },
 ];
