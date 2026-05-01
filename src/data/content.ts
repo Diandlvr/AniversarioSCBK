@@ -199,7 +199,7 @@ export const ourSongs = [
     artist: "Bad Bunny & The Marías",
     title: "Otro Atardecer",
     lyricSnippet: "Hoy el sol se escondió más temprano, cenamos y se nos fue la mano...",
-    audioFile: "/music/otro_atardecer.m4a",
+    audioFile: "/music/otro_atardecer_v2.m4a",
     coverSrc: "/photos/albums/otro-atardecer.jpg",
   },
   {
@@ -247,7 +247,7 @@ export const ourSongs = [
     artist: "Bad Bunny",
     title: "Ojitos Lindos",
     lyricSnippet: "Yo no me dejo llevar de nadie, solo me dejo llevar de tu sonrisa...",
-    audioFile: "/music/ojitos_lindos_v3.m4a",
+    audioFile: "/music/ojitos_lindos_v4.m4a",
     coverSrc: "/photos/albums/ojitos-lindos.jpg",
   },
   {
