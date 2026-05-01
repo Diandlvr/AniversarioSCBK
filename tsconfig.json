@@ -34,7 +34,6 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "node_modules",
-    "Design"
+    "node_modules"
   ]
 }
