@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import s from "./PhotoBooth.module.css";
 import { photoBoothStrip, galleryPolaroids, config } from "@/data/content";
+import { PHOTO_BLUR } from "@/lib/blur";
 
 export default function PhotoBooth() {
   return (
@@ -60,6 +61,8 @@ export default function PhotoBooth() {
                     src={photo.src}
                     alt={photo.alt}
                     fill
+                    placeholder="blur"
+                    blurDataURL={PHOTO_BLUR}
                     style={{ objectFit: "cover", filter: "grayscale(0.3) sepia(0.35) contrast(1.1)" }}
                   />
                   <div className={s.frameOverlay} />
@@ -98,6 +101,8 @@ export default function PhotoBooth() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
+                  placeholder="blur"
+                  blurDataURL={PHOTO_BLUR}
                   style={{ objectFit: "cover", filter: "grayscale(0.15) sepia(0.25)" }}
                 />
                 <div className={s.polaroidPhotoOverlay} />

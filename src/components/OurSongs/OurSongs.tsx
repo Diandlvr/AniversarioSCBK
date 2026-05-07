@@ -1,14 +1,34 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import s from "./OurSongs.module.css";
 import { ourSongs } from "@/data/content";
+import { PHOTO_BLUR } from "@/lib/blur";
 
 export default function OurSongs() {
   const audioRefs = useRef<{ [key: string]: HTMLAudioElement | null }>({});
   const activeId = useRef<string | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [shouldPreload, setShouldPreload] = useState(false);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldPreload(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const stopAll = useCallback(() => {
     Object.values(audioRefs.current).forEach((audio) => {
@@ -88,7 +108,7 @@ export default function OurSongs() {
   );
 
   return (
-    <section className={s.sectionWrapper}>
+    <section ref={sectionRef} className={s.sectionWrapper}>
       <div className={s.noiseOverlay} />
 
       <div className={`${s.sectionContent} container`}>
@@ -130,7 +150,7 @@ export default function OurSongs() {
                   audioRefs.current[song.id] = el;
                 }}
                 src={song.audioFile}
-                preload="metadata"
+                preload={shouldPreload ? "metadata" : "none"}
               />
 
               <div className={s.vinylRecordIcon}>
@@ -140,6 +160,8 @@ export default function OurSongs() {
                       src={song.coverSrc}
                       alt={`${song.title} album cover`}
                       fill
+                      placeholder="blur"
+                      blurDataURL={PHOTO_BLUR}
                       className={s.albumCover}
                     />
                   )}

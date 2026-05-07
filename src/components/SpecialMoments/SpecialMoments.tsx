@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import s from "./SpecialMoments.module.css";
 import { specialMoments } from "@/data/content";
+import { PHOTO_BLUR } from "@/lib/blur";
 
 export default function SpecialMoments() {
   return (
@@ -59,6 +60,8 @@ export default function SpecialMoments() {
                       alt={moment.title}
                       width={400}
                       height={260}
+                      placeholder="blur"
+                      blurDataURL={PHOTO_BLUR}
                       className={s.cardPhoto}
                     />
                     <div className={s.photoOverlay} />

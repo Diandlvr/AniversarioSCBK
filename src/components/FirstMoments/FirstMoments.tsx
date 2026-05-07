@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import s from "./FirstMoments.module.css";
 import { firstMoments, config } from "@/data/content";
+import { PHOTO_BLUR } from "@/lib/blur";
 
 export default function FirstMoments() {
   return (
@@ -48,6 +49,8 @@ export default function FirstMoments() {
                 src={firstMoments[0].photoSrc}
                 alt={firstMoments[0].photoAlt}
                 fill
+                placeholder="blur"
+                blurDataURL={PHOTO_BLUR}
                 style={{ objectFit: "cover", filter: "grayscale(0.2) sepia(0.3)" }}
               />
               <div className={s.photoOverlay} />
@@ -143,6 +146,8 @@ export default function FirstMoments() {
                   src={firstMoments[1].photoSrc}
                   alt={firstMoments[1].photoAlt}
                   fill
+                  placeholder="blur"
+                  blurDataURL={PHOTO_BLUR}
                   style={{ objectFit: "cover", filter: "grayscale(0.2) sepia(0.3)" }}
                 />
                 <div className={s.photoOverlay} />
@@ -180,6 +185,8 @@ export default function FirstMoments() {
                   src={firstMoments[2].photoSrc}
                   alt={firstMoments[2].photoAlt}
                   fill
+                  placeholder="blur"
+                  blurDataURL={PHOTO_BLUR}
                   style={{ objectFit: "cover", filter: "grayscale(0.3) sepia(0.35)" }}
                 />
                 <div className={s.photoOverlay} />

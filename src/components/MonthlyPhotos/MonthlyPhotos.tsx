@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import s from "./MonthlyPhotos.module.css";
 import { monthlyPhotos } from "@/data/content";
+import { PHOTO_BLUR } from "@/lib/blur";
 
 /* Rotaciones predefinidas para efecto orgánico scrapbook */
 const rotations = [-2.5, 1.8, -1.2, 2.4, -0.8, 1.5, -2, 0.9, -1.6, 2.1, -1];
@@ -51,6 +52,8 @@ export default function MonthlyPhotos() {
                 alt={`${item.month} ${item.year}`}
                 width={400}
                 height={400}
+                placeholder="blur"
+                blurDataURL={PHOTO_BLUR}
                 className={s.photo}
               />
             </div>

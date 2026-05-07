@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import s from "./Hero.module.css";
 import { config } from "@/data/content";
+import { PHOTO_BLUR } from "@/lib/blur";
 
 export default function Hero() {
   const { hero, names } = config;
@@ -17,6 +18,8 @@ export default function Hero() {
           alt={hero.photoAlt}
           fill
           priority
+          placeholder="blur"
+          blurDataURL={PHOTO_BLUR}
           style={{ objectFit: "cover", objectPosition: "center top" }}
         />
       </div>

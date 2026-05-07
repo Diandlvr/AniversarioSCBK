@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import s from "./MoviesWatched.module.css";
 import { moviesWatched } from "@/data/content";
+import { PHOTO_BLUR } from "@/lib/blur";
 
 export default function MoviesWatched() {
   return (
@@ -51,6 +52,8 @@ export default function MoviesWatched() {
                 alt={movie.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 30vw"
+                placeholder="blur"
+                blurDataURL={PHOTO_BLUR}
                 className={s.posterImage}
               />
               
