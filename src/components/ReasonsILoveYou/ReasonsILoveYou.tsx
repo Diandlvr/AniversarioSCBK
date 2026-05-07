@@ -17,7 +17,10 @@ function Envelope({ title, note, idx }: { title: string; note: string; idx: numb
       className={s.envelopeWrapper}
     >
       {/* Scene container holds both the note (behind) and envelope (in front) */}
-      <div className={`${s.envelopeScene} ${isOpen ? s.envelopeOpen : ""}`}>
+      <div
+        className={`${s.envelopeScene} ${isOpen ? s.envelopeOpen : ""}`}
+        style={{ "--idx": idx } as React.CSSProperties}
+      >
         {/* Note — z-index 1, behind everything */}
         <div className={s.note}>
           <span className={s.noteTitle}>{title}</span>

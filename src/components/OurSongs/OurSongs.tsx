@@ -21,7 +21,7 @@ export default function OurSongs() {
     activeId.current = null;
   }, []);
 
-  const handleMouseEnter = useCallback(
+  const playAudio = useCallback(
     (id: string) => {
       // Pause any currently playing song
       if (activeId.current && activeId.current !== id) {
@@ -53,7 +53,7 @@ export default function OurSongs() {
     []
   );
 
-  const handleMouseLeave = useCallback(
+  const pauseAudio = useCallback(
     (id: string) => {
       const audio = audioRefs.current[id];
       if (audio) {
@@ -74,6 +74,17 @@ export default function OurSongs() {
       }
     },
     []
+  );
+
+  const toggleAudio = useCallback(
+    (id: string) => {
+      if (activeId.current === id) {
+        pauseAudio(id);
+      } else {
+        playAudio(id);
+      }
+    },
+    [playAudio, pauseAudio]
   );
 
   return (
@@ -110,15 +121,16 @@ export default function OurSongs() {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
               className={s.songCard}
-              onMouseEnter={() => handleMouseEnter(song.id)}
-              onMouseLeave={() => handleMouseLeave(song.id)}
+              onMouseEnter={() => playAudio(song.id)}
+              onMouseLeave={() => pauseAudio(song.id)}
+              onClick={() => toggleAudio(song.id)}
             >
               <audio
                 ref={(el) => {
                   audioRefs.current[song.id] = el;
                 }}
                 src={song.audioFile}
-                preload="auto"
+                preload="none"
               />
 
               <div className={s.vinylRecordIcon}>

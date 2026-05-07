@@ -171,6 +171,18 @@
   transform: rotateX(180deg);
 }
 
+/* ─── Idle animation on closed envelope ─── */
+@keyframes envelopePulse {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  40%       { transform: translateY(-4px) rotate(0.5deg); }
+  60%       { transform: translateY(-3px) rotate(-0.3deg); }
+}
+
+.envelopeScene:not(.envelopeOpen) .envelope {
+  animation: envelopePulse 3.5s ease-in-out infinite;
+  animation-delay: calc(var(--idx, 0) * 0.4s);
+}
+
 /* ─── Button ─── */
 .interactBtn {
   margin-top: 1rem;

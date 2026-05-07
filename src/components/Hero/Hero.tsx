@@ -10,6 +10,7 @@ export default function Hero() {
 
   return (
     <section className={s.hero}>
+      {/* Full-bleed photo */}
       <div className={s.photoWrapper}>
         <Image
           src={hero.photoSrc}
@@ -19,26 +20,26 @@ export default function Hero() {
           style={{ objectFit: "cover", objectPosition: "center top" }}
         />
       </div>
+
+      {/* Gradient overlay */}
       <div className={s.overlay} />
+      <div className={s.grainOverlay} />
 
-      {/* Ambient Rose Glow */}
-      <div className={`${s.ambientGlow} ${s.glowLeft}`} />
-      <div className={`${s.ambientGlow} ${s.glowRight}`} />
-
+      {/* Typography anchored to bottom */}
       <div className={s.content}>
         <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6 }}
-          transition={{ delay: 0.2 }}
-          className={`${s.tagline} text-sans`}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className={`${s.tagline} text-mono`}
         >
           {hero.tagline}
         </motion.span>
 
         <motion.h1
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className={`${s.title} text-display`}
         >
           {hero.title}
@@ -46,8 +47,8 @@ export default function Hero() {
 
         <motion.p
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.7 }}
-          transition={{ delay: 0.5 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1 }}
           className={`${s.subtitle} text-script`}
         >
           {names.yours} & {names.hers} — {hero.subtitle}
