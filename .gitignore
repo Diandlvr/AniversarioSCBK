@@ -28,3 +28,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# design prototype (separate from main app)
+/Design
