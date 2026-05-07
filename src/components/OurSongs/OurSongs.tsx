@@ -130,7 +130,7 @@ export default function OurSongs() {
                   audioRefs.current[song.id] = el;
                 }}
                 src={song.audioFile}
-                preload="none"
+                preload="metadata"
               />
 
               <div className={s.vinylRecordIcon}>
