@@ -50,13 +50,13 @@ export const metadata: Metadata = {
     description: "Nuestra historia, página por página.",
     type: "website",
     url: "https://the-archive-of-us.vercel.app", // Reemplazar con el dominio real si se tiene
-    images: ["/api/og"],
+    images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "The Archive of Us",
     description: "Nuestra historia, página por página.",
-    images: ["/api/og"],
+    images: ["/og-image.png"],
   },
 };
 
