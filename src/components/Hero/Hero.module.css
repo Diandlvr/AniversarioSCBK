@@ -109,5 +109,15 @@
 
   .subtitle {
     font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  /* Use center positioning so vertical photos don't show too much sky/empty space */
+  .photoWrapper :global(img) {
+    object-position: center !important;
+  }
+
+  .hero {
+    padding-bottom: 4rem;
   }
 }

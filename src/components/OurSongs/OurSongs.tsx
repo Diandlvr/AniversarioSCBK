@@ -128,7 +128,7 @@ export default function OurSongs() {
             viewport={{ once: true }}
             className={`${s.sectionSubtitle} text-script`}
           >
-            Las canciones que suenan mientras el mundo se detiene. Pasa el cursor para escuchar.
+            Las canciones que suenan mientras el mundo se detiene. Toca una para escuchar.
           </motion.p>
         </div>
 

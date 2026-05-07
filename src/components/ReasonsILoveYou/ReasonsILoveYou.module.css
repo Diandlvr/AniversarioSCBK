@@ -36,6 +36,14 @@
   padding: 2rem 0;
 }
 
+@media (max-width: 480px) {
+  .envelopesGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 1rem 0;
+  }
+}
+
 /* ─── Envelope Container ─── */
 .envelopeWrapper {
   width: 100%;

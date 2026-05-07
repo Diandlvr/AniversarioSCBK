@@ -215,6 +215,18 @@
   text-orientation: mixed;
 }
 
+.ticketsLayout {
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  /* Cancel rotation on mobile to prevent horizontal overflow */
+  .ticket {
+    transform: none !important;
+  }
+}
+
 @media (max-width: 500px) {
   .ticket {
     width: 100%;

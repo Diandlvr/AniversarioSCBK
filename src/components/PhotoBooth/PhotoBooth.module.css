@@ -237,4 +237,9 @@
   .polaroid:nth-child(2) {
     margin-top: 0;
   }
+
+  /* Reduce rotation on mobile to avoid horizontal overflow */
+  .stripWrapper {
+    transform: rotate(-1deg);
+  }
 }
